@@ -13,7 +13,8 @@
       "emitDecoratorMetadata": true,
       "strict": true,
       "strictPropertyInitialization": false,
-      "declaration": true
+      "declaration": true,
+      "module": "CommonJS"
     },
     "exclude": ["node_modules", "lib"]
   }
