@@ -6,3 +6,11 @@ cache: yarn
 script:
   - yarn build
   - yarn test
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: tim-hoffmann@egonoid.com
+  api_key:
+    secure: OYqhwrdmU3kfGvW9At90bnhfdkC/L9XNQv73M0EBsARAwQG6fuwHuG9Agmo/Kl+B459fpyB7xUVODlFmPbgdsd+rU/b8I3AFjgqW6/BnOgF2+Fh4M3THI0v6t7FBXyPMfQxtL7nVDisPGt+A9xoeQ+/0T081Z0ZlR/WV6V0QHj1KtI+ZqmnOkHS+WsbJfRJJuoJDIdk/2AWgA2zJRYHd7/5mOC0H1tVsFZMJZU6j/Lr3c2sIPYdYdp5UbQsatSVMUPGST6vxgxxzoOxENOBgXAD1pYMzyFvuC9mYvoebrtL8iM7F2bSfiGigRJAavQ+Z5AmqXgVSzu43xGIXQtmKJq6ey8mvsdt1oUyoYdmnBDKsMH9T9fSi4Rs2DEqGg2wQQs3WJ9GGEbDye3yhqbA4+eQRF9tLkgcPYojVsLwlOwJxyr/dDr5OsSRXIvBX29VmjQD2/BqAs8XJSQIKyCNui+w4j8aC0MCYVvwVBOq31wzUs0xemJt9xanjekAXZaSSXhB/Qyuk5zSwIHb1csMfvk+0IW+0ltmkQ/pp3RLknVQHU/KZat3M6BP4n3ZNX6DHhVaLzue5CZhIrl3GhZ0k24KuwE74jXqrBp7cw74Bo/AFonDpXhyiohK6U503O00QmyoftX8JA6BJ24BsO02kU+/HTyvUL1JfqG4guRRQhxk=
+  on:
+    branch: master
