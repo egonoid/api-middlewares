@@ -14,12 +14,14 @@
     "@types/node": "^13.13.4",
     "@types/yup": "^0.28.0",
     "jest": "^26.0.0",
+    "prettier": "^2.0.5",
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write 'src/**/*.{js,json,yml,ts}'"
   },
   "dependencies": {
     "middy": "^0.36.0",

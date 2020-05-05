@@ -42,11 +42,7 @@ const unitTestSchema = yup.object({
   country: yup.string().required('Entering a country is required.'),
   state: yup.string(),
   phone: yup.string(),
-  age: yup
-    .number()
-    .required()
-    .min(18)
-    .max(99),
+  age: yup.number().required().min(18).max(99),
 });
 
 type UnitTestModel = yup.InferType<typeof unitTestSchema>;

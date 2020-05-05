@@ -14,13 +14,13 @@ export const validate = async <T>(
 
   const result = schema
     .validate(item, options)
-    .then(value => {
+    .then((value) => {
       return value as Promise<T>;
     })
     .catch((err: ValidationError) => {
       if (err && err.inner) {
         const errors: any[] = [];
-        err.inner.forEach(error => {
+        err.inner.forEach((error) => {
           const source = error.path;
           const type = getErrorType(error.value, error.type);
           const message = getErrorMessage(source, type, error.params);

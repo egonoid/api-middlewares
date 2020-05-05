@@ -6,7 +6,7 @@ const bodyValidator: Middleware<
   { schema: ObjectSchema; payloadSelector?: string },
   any,
   any
-> = config => {
+> = (config) => {
   return {
     before: (handler, next) => {
       if (!config?.schema) {
@@ -28,11 +28,11 @@ const bodyValidator: Middleware<
       const payload = payloadSelector ? body[payloadSelector] : body;
 
       validate(payload, schema)
-        .then(model => {
+        .then((model) => {
           handler.event.model = model;
           next();
         })
-        .catch(err =>
+        .catch((err) =>
           handler.callback(null, {
             statusCode: 400,
             body: JSON.stringify({
