@@ -1,1 +1,1 @@
-export { default as eventLogger } from "./eventLogger.middleware";
+export { default as eventLogger } from "./middlewares/eventLogger.middleware";
