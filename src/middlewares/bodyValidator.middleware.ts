@@ -36,7 +36,7 @@ const bodyValidator: Middleware<
           handler.callback(null, {
             statusCode: 400,
             body: JSON.stringify({
-              message: 'INVALID_REQUEST',
+              message: 'VALIDATION_ERROR',
               errors: err.errors,
             }),
           })
