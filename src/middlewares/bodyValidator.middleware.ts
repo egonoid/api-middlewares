@@ -8,7 +8,7 @@ const bodyValidator: Middleware<
   any
 > = (config) => {
   return {
-    before: (handler, next) => {
+    before: async (handler) => {
       if (!config?.schema) {
         throw new Error('Schema is missing.');
       }
@@ -27,20 +27,20 @@ const bodyValidator: Middleware<
       const { schema, payloadSelector } = config;
       const payload = payloadSelector ? body[payloadSelector] : body;
 
-      validate(payload, schema)
-        .then((model) => {
-          handler.event.model = model;
-          next();
-        })
-        .catch((err) =>
-          handler.callback(null, {
-            statusCode: 400,
-            body: JSON.stringify({
-              message: 'VALIDATION_ERROR',
-              errors: err.errors,
-            }),
-          })
-        );
+      try {
+        const model = await validate(payload, schema);
+        handler.event.model = model;
+      } catch (err) {
+        handler.callback(null, {
+          statusCode: 400,
+          body: JSON.stringify({
+            message: 'INVALID_REQUEST',
+            errors: err.errors,
+          }),
+        });
+      }
+
+      return;
     },
   };
 };
