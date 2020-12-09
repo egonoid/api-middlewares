@@ -24,6 +24,13 @@ const bodyValidator: Middleware<
         });
       }
 
+      if (!body) {
+        return handler.callback(null, {
+          statusCode: 400,
+          body: JSON.stringify({ message: 'INVALID_REQUEST' }),
+        });
+      }
+
       const { schema, payloadSelector } = config;
       const payload = payloadSelector ? body[payloadSelector] : body;
 
