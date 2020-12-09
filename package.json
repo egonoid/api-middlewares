@@ -1,6 +1,6 @@
 {
   "name": "@egonoid/api-middlewares",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/index.js",
   "repository": "git://github.com/egonoid/api-middlewares.git",
   "author": "Tim Hoffmann <tim.hoffmann@egonoid.com>",
